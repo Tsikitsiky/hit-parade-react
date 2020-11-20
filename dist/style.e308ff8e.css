@@ -54,6 +54,13 @@ p {
 .shopping-cart {
     background-image: url(/shop-line.07dd503d.svg);
 }
+.shopping-cart-fill {
+    background-image: url(/shop-fill.53440c36.svg);
+}
+
+.delete {
+    background-image: url(/delete.491a0fad.svg);
+}
 
 .song-cart {
     position: relative;
@@ -68,6 +75,30 @@ p {
 
 .votes {
     color: #ff6e6c;
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-list > p {
+    align-self: center;
+}
+
+.buy-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 32px;
+}
+
+.buy-total button {
+    font-size: 32px;
+    padding: 0.5rem;
+    border: none;
+    background-color: #FFD803;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

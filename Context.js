@@ -4,35 +4,68 @@ import Songs from './songs.json';
 const Context = React.createContext();
 
 function ContextProvider({children}) {
-    const [songs, setSongs] = useState(Songs);
+    const [allSongs, setAllSongs] = useState(Songs);
+    const [cartSongs, setCartSongs] = useState([]);
 
     function toggleFavorite(id) {
-        const newSongsList = songs.map(song => {
+        const newSongsList = allSongs.map(song => {
             if(song.id === id) {
                 return {
                     ...song,
                     isFavourite: !song.isFavourite 
                 }
             }
-            //console.log(photo)
             return song;
         })
-        setSongs(newSongsList);
+        setAllSongs(newSongsList);
         //localStorage.setItem('photos', JSON.stringify(photos));
     }
 
-    function removeFromCart(id) {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+    function upvote(id) {
+        const newSongsList = allSongs.map(song => {
+            if(song.id === id) {
+                return {
+                    ...song,
+                    upvotes: song.upvotes + 1 
+                }
+            }
+            return song;
+        })
+        setAllSongs(newSongsList);
+        //localStorage.setItem('photos', JSON.stringify(photos));
     }
 
-    function emptyCart() {
-        setCartItems([]);
+    function downvote(id) {
+        const newSongsList = allSongs.map(song => {
+            if(song.id === id) {
+                return {
+                    ...song,
+                    downvotes: song.downvotes + 1 
+                }
+            }
+            return song;
+        })
+        setAllSongs(newSongsList);
+        //localStorage.setItem('photos', JSON.stringify(photos));
+    }
+
+    function addToCart(song) {
+        setCartSongs(prevItems => [...prevItems, song])
+    }
+
+    function removeFromCart(id) {
+        setCartSongs(prevItems => prevItems.filter(item => item.id !== id));
+    }
+
+    function emptyCart(total) {
+        setCartSongs([]);
+        console.log(`your songs cost ${total}Ar`);
 	}
 	
 
-    console.log(songs)
+    console.log(allSongs)
     return (
-        <Context.Provider value={{songs, toggleFavorite}}>
+        <Context.Provider value={{allSongs, toggleFavorite, upvote, downvote, addToCart, cartSongs, removeFromCart, emptyCart}}>
             {children}
         </Context.Provider>
     )

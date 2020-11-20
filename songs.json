@@ -6,6 +6,7 @@
         "upvotes": 0,
         "downvotes": 0,
         "isFavourite": false,
+        "price": 1000,
         "style": "salegy",
         "lyrics": "Lyrics, lirycs"
 
@@ -17,6 +18,7 @@
         "upvotes": 0,
         "downvotes": 0,
         "isFavourite": false,
+        "price": 1000,
         "style": "Folk",
         "lyrics": "Walking down 29th and Park"
 

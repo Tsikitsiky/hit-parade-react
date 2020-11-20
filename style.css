@@ -54,6 +54,13 @@ p {
 .shopping-cart {
     background-image: url(./icons/shop-line.svg);
 }
+.shopping-cart-fill {
+    background-image: url(./icons/shop-fill.svg);
+}
+
+.delete {
+    background-image: url(./icons/delete.svg);
+}
 
 .song-cart {
     position: relative;
@@ -68,4 +75,28 @@ p {
 
 .votes {
     color: #ff6e6c;
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-list > p {
+    align-self: center;
+}
+
+.buy-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 32px;
+}
+
+.buy-total button {
+    font-size: 32px;
+    padding: 0.5rem;
+    border: none;
+    background-color: #FFD803;
 }
