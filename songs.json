@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "artist": "Ed Sheeran",
+        "title": "Happier",
+        "upvotes": 0,
+        "downvotes": 0,
+        "isFavourite": false,
+        "style": "salegy",
+        "lyrics": "Lyrics, lirycs"
+
+    },
+    {
+        "id": 2,
+        "artist": "Jaojoby",
+        "title": "Happier",
+        "upvotes": 0,
+        "downvotes": 0,
+        "isFavourite": false,
+        "style": "Folk",
+        "lyrics": "Walking down 29th and Park"
+
+    }
+]

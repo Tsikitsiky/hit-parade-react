@@ -1,0 +1,68 @@
+header {
+    padding: 1rem;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #1f1235;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.navigation a:focus {
+    font-weight: 700;
+    border-bottom: 2px solid #6066D0;
+}
+
+p {
+    margin: 0;
+}
+
+.song-cart button {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    padding: 0 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #ff6e6c;
+}
+
+
+.favorite {
+	background-image: url(./icons/heart-line.svg);
+}
+
+.song-cart .up-arrow {
+    background-image: url(./icons/up-arrow.svg);
+    padding: 1rem ;
+}
+.song-cart .down-arrow {
+    background-image: url(./icons/down-arrow.svg);
+    padding: 1rem ;
+}
+
+.shopping-cart {
+    background-image: url(./icons/shop-line.svg);
+}
+
+.song-cart {
+    position: relative;
+    padding: 1rem;
+    /* padding-left: 3rem; */
+    background-color: #1f1235;
+    color: #ffffff;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.votes {
+    color: #ff6e6c;
+}
