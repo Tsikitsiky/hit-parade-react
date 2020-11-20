@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Style from './pages/Style'
 import Add from './pages/Add'
 import Cart from './pages/Cart'
+import StyleName from './Components/StyleName';
+import SongLyrics from './Components/SongLyrics';
 
 function App() {
     return (
@@ -21,8 +23,14 @@ function App() {
                 <Route exact path = '/'>
                    <Home />
                 </Route>
-                <Route path = '/styles'>
+                <Route exact path = '/styles'>
                     <Style />
+                </Route>
+                <Route path = '/styles/:styleName'>
+                    <StyleName />
+                </Route>
+                <Route path = '/songs/:songId'>
+                    <SongLyrics />
                 </Route>
                 <Route path = '/add'>
                     <Add />

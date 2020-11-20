@@ -33853,8 +33853,14 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"songs.json":[function(require,module,exports) {
-module.exports = [{
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"songs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = [{
   "id": 1,
   "artist": "Ed Sheeran",
   "title": "Happier",
@@ -33863,7 +33869,7 @@ module.exports = [{
   "isFavourite": false,
   "price": 1000,
   "style": "salegy",
-  "lyrics": "Lyrics, lirycs"
+  "lyrics": "Walking down 29th and Park\n        I saw you in another's arms\n        Only a month we've been apart\n        You look happier\n        Saw you walk inside a bar\n        He said somethin' to make you laugh\n        I saw that both your smiles were twice as wide as ours\n        Yeah, you look happier, you do"
 }, {
   "id": 2,
   "artist": "Jaojoby",
@@ -33872,9 +33878,10 @@ module.exports = [{
   "downvotes": 0,
   "isFavourite": false,
   "price": 1000,
-  "style": "Folk",
+  "style": "folk",
   "lyrics": "Walking down 29th and Park"
 }];
+exports.default = _default;
 },{}],"Context.js":[function(require,module,exports) {
 "use strict";
 
@@ -33886,7 +33893,7 @@ exports.Context = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _songs = _interopRequireDefault(require("./songs.json"));
+var _songs = _interopRequireDefault(require("./songs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33936,6 +33943,11 @@ function ContextProvider(_ref) {
       _useState4 = _slicedToArray(_useState3, 2),
       cartSongs = _useState4[0],
       setCartSongs = _useState4[1];
+
+  var _useState5 = (0, _react.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      filtered = _useState6[0],
+      setFiltered = _useState6[1];
 
   function toggleFavorite(id) {
     var newSongsList = allSongs.map(function (song) {
@@ -33995,6 +34007,13 @@ function ContextProvider(_ref) {
     console.log("your songs cost ".concat(total, "Ar"));
   }
 
+  function filtering(e) {
+    var filterSong = allSongs.filter(function (song) {
+      return song.style === e.target.value;
+    });
+    setFiltered(filterSong);
+  }
+
   console.log(allSongs);
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
@@ -34005,11 +34024,13 @@ function ContextProvider(_ref) {
       addToCart: addToCart,
       cartSongs: cartSongs,
       removeFromCart: removeFromCart,
-      emptyCart: emptyCart
+      emptyCart: emptyCart,
+      filtering: filtering,
+      filtered: filtered
     }
   }, children);
 }
-},{"react":"node_modules/react/index.js","./songs.json":"songs.json"}],"Components/Song.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./songs":"songs.js"}],"Components/Song.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34020,6 +34041,8 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _Context = require("../Context");
+
+var _reactRouterDom = require("react-router-dom");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -34083,12 +34106,14 @@ function Song(_ref) {
     className: "down-arrow"
   })), cartIcon(), /*#__PURE__*/_react.default.createElement("button", {
     className: "dots"
-  }, "..."));
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/songs/".concat(song.id)
+  }, "...")));
 }
 
 var _default = Song;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../Context":"Context.js"}],"pages/Home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../Context":"Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"pages/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34132,17 +34157,46 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _reactRouterDom = require("react-router-dom");
+
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Styles() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Style Page"));
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      filtering = _useContext.filtering;
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/styles/salegy"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    value: "salegy",
+    onClick: filtering
+  }, "Salegy"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/styles/rock"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    value: "rock",
+    onClick: filtering
+  }, "Rock"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/styles/folk"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    value: "folk",
+    onClick: filtering
+  }, "Folk"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/styles/reggae"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    value: "reggae",
+    onClick: filtering
+  }, "Reggae")))));
 }
 
 var _default = Styles;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"pages/Add.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Context":"Context.js"}],"pages/Add.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34256,7 +34310,82 @@ function Cart() {
 
 var _default = Cart;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../Components/CartSong":"Components/CartSong.js","../Context":"Context.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../Components/CartSong":"Components/CartSong.js","../Context":"Context.js"}],"Components/StyleName.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function StyleName() {
+  var _useParams = (0, _reactRouterDom.useParams)(),
+      styleName = _useParams.styleName;
+
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      filtered = _useContext.filtered;
+
+  var songList = filtered.map(function (song) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      key: song.id,
+      className: "song-cart"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/songs/".concat(song.id)
+    }, /*#__PURE__*/_react.default.createElement("p", {
+      className: "style-name-p"
+    }, song.title, " ", /*#__PURE__*/_react.default.createElement("br", null), " ", /*#__PURE__*/_react.default.createElement("small", null, song.artist))));
+  });
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "style-name"
+  }, styleName), songList);
+}
+
+var _default = StyleName;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Context":"Context.js"}],"Components/SongLyrics.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function SongLyrics() {
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      allSongs = _useContext.allSongs;
+
+  var _useParams = (0, _reactRouterDom.useParams)(),
+      songId = _useParams.songId;
+
+  var song = allSongs.find(function (song) {
+    return song.id === Number(songId);
+  });
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, song.title, " : ", song.artist), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), /*#__PURE__*/_react.default.createElement("p", null, " ", song.lyrics, " ")));
+}
+
+var _default = SongLyrics;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Context":"Context.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34276,6 +34405,10 @@ var _Add = _interopRequireDefault(require("./pages/Add"));
 
 var _Cart = _interopRequireDefault(require("./pages/Cart"));
 
+var _StyleName = _interopRequireDefault(require("./Components/StyleName"));
+
+var _SongLyrics = _interopRequireDefault(require("./Components/SongLyrics"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
@@ -34293,8 +34426,13 @@ function App() {
     exact: true,
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_Home.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
     path: "/styles"
   }, /*#__PURE__*/_react.default.createElement(_Style.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/styles/:styleName"
+  }, /*#__PURE__*/_react.default.createElement(_StyleName.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/songs/:songId"
+  }, /*#__PURE__*/_react.default.createElement(_SongLyrics.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/add"
   }, /*#__PURE__*/_react.default.createElement(_Add.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/cart"
@@ -34303,7 +34441,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./pages/Home":"pages/Home.js","./pages/Style":"pages/Style.js","./pages/Add":"pages/Add.js","./pages/Cart":"pages/Cart.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./pages/Home":"pages/Home.js","./pages/Style":"pages/Style.js","./pages/Add":"pages/Add.js","./pages/Cart":"pages/Cart.js","./Components/StyleName":"Components/StyleName.js","./Components/SongLyrics":"Components/SongLyrics.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

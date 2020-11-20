@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { Context } from '../Context'
+import { Context } from '../Context';
+import {Link} from 'react-router-dom'
 
 function Song({song}) {
     const { toggleFavorite, upvote, downvote, cartSongs , addToCart, removeFromCart } = useContext(Context);
@@ -23,7 +24,9 @@ function Song({song}) {
                 <i onClick={() => downvote(song.id)} className="down-arrow"></i>
             </div>
             {cartIcon()}
-            <button className="dots">...</button>
+            <button className="dots">
+                <Link to={`/songs/${song.id}`}>...</Link>
+            </button>
         </div>
     )
 }

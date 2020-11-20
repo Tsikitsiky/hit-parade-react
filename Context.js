@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Songs from './songs.json';
+import Songs from './songs';
 
 const Context = React.createContext();
 
 function ContextProvider({children}) {
     const [allSongs, setAllSongs] = useState(Songs);
     const [cartSongs, setCartSongs] = useState([]);
+    const [filtered, setFiltered] = useState([])
 
     function toggleFavorite(id) {
         const newSongsList = allSongs.map(song => {
@@ -60,12 +61,17 @@ function ContextProvider({children}) {
     function emptyCart(total) {
         setCartSongs([]);
         console.log(`your songs cost ${total}Ar`);
-	}
+    }
+    
+    function filtering(e) {
+        const filterSong = allSongs.filter(song => song.style === e.target.value);
+        setFiltered(filterSong);
+    }
 	
 
     console.log(allSongs)
     return (
-        <Context.Provider value={{allSongs, toggleFavorite, upvote, downvote, addToCart, cartSongs, removeFromCart, emptyCart}}>
+        <Context.Provider value={{allSongs, toggleFavorite, upvote, downvote, addToCart, cartSongs, removeFromCart, emptyCart, filtering, filtered}}>
             {children}
         </Context.Provider>
     )
