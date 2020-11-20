@@ -23,29 +23,32 @@ p {
     margin: 0;
 }
 
-.song-cart button {
+ i {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 1rem;
     padding: 0 1rem;
+}
+
+.song-cart button {
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
     color: #ff6e6c;
 }
 
-
 .favorite {
 	background-image: url(./icons/heart-line.svg);
+}
+.favorite-fill {
+	background-image: url(./icons/heart-fill.svg);
 }
 
 .song-cart .up-arrow {
     background-image: url(./icons/up-arrow.svg);
-    padding: 1rem ;
 }
 .song-cart .down-arrow {
     background-image: url(./icons/down-arrow.svg);
-    padding: 1rem ;
 }
 
 .shopping-cart {

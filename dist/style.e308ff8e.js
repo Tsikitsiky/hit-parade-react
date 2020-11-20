@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./icons\\heart-line.svg":[["heart-line.644f8196.svg","icons/heart-line.svg"],"icons/heart-line.svg"],"./icons\\up-arrow.svg":[["up-arrow.da6f862a.svg","icons/up-arrow.svg"],"icons/up-arrow.svg"],"./icons\\down-arrow.svg":[["down-arrow.6495a046.svg","icons/down-arrow.svg"],"icons/down-arrow.svg"],"./icons\\shop-line.svg":[["shop-line.07dd503d.svg","icons/shop-line.svg"],"icons/shop-line.svg"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./icons\\heart-line.svg":[["heart-line.644f8196.svg","icons/heart-line.svg"],"icons/heart-line.svg"],"./icons\\heart-fill.svg":[["heart-fill.0b36f3d6.svg","icons/heart-fill.svg"],"icons/heart-fill.svg"],"./icons\\up-arrow.svg":[["up-arrow.da6f862a.svg","icons/up-arrow.svg"],"icons/up-arrow.svg"],"./icons\\down-arrow.svg":[["down-arrow.6495a046.svg","icons/down-arrow.svg"],"icons/down-arrow.svg"],"./icons\\shop-line.svg":[["shop-line.07dd503d.svg","icons/shop-line.svg"],"icons/shop-line.svg"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
