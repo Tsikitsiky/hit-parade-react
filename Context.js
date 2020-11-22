@@ -54,6 +54,10 @@ function ContextProvider({children}) {
         setCartSongs(prevItems => [...prevItems, song])
     }
 
+    function addNewSong(song) {
+        setAllSongs(prevItems => [...prevItems, song])
+    }
+
     function removeFromCart(id) {
         setCartSongs(prevItems => prevItems.filter(item => item.id !== id));
     }
@@ -69,9 +73,9 @@ function ContextProvider({children}) {
     }
 	
 
-    console.log(allSongs)
+    //console.log(allSongs)
     return (
-        <Context.Provider value={{allSongs, toggleFavorite, upvote, downvote, addToCart, cartSongs, removeFromCart, emptyCart, filtering, filtered}}>
+        <Context.Provider value={{allSongs, toggleFavorite, upvote, downvote, addToCart, cartSongs, removeFromCart, emptyCart, filtering, filtered, addNewSong}}>
             {children}
         </Context.Provider>
     )

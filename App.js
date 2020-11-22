@@ -13,10 +13,10 @@ function App() {
             <header>
                 <h1>Hit Parade</h1>
                 <nav className="navigation">
-                    <Link to = '/'> Popular Songs</Link>
-                    <Link to = '/styles'>Styles</Link>
-                    <Link to = '/add'>Add</Link>
-                    <Link to = '/cart'>Cart</Link>
+                    <Link to = '/'> 🔥 Popular Songs</Link>
+                    <Link to = '/styles'>💗 Styles</Link>
+                    <Link to = '/add'>🙂 Add</Link>
+                    <Link to = '/cart'>🛒 Cart</Link>
                 </nav>
             </header>
             <Switch>

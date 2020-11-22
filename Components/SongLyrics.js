@@ -9,7 +9,7 @@ function SongLyrics() {
     return (
         <div>
             <h2>{song.title} : {song.artist}</h2>
-            <div>
+            <div className="lyrics">
                 <h3>Lyrics</h3>
                 {/* <textarea value={song.lyrics} readOnly /> */}
                 <p> {song.lyrics} </p>
