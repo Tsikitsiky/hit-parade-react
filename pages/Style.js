@@ -25,7 +25,12 @@ function Styles() {
                 <li>
                 <Link to='/styles/reggae'>
                         <button value='reggae' onClick={filtering}>Reggae</button>
-                    </Link>
+                </Link>
+                </li>
+                <li>
+                <Link to='/styles/r&b'>
+                        <button value='r&b' onClick={filtering}>R&B</button>
+                </Link>
                 </li>
             </ul>
         </div>

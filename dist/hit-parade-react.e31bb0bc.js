@@ -33868,18 +33868,18 @@ var _default = [{
   "downvotes": 0,
   "isFavourite": false,
   "price": 1000,
-  "style": "salegy",
+  "style": "folk",
   "lyrics": "Walking down 29th and Park\n        I saw you in another's arms\n        Only a month we've been apart\n        You look happier\n        Saw you walk inside a bar\n        He said somethin' to make you laugh\n        I saw that both your smiles were twice as wide as ours\n        Yeah, you look happier, you do"
 }, {
   "id": 2,
   "artist": "Jaojoby",
-  "title": "Happier",
+  "title": "Tsy hirenireny",
   "upvotes": 0,
   "downvotes": 0,
   "isFavourite": false,
-  "price": 1000,
-  "style": "folk",
-  "lyrics": "Walking down 29th and Park"
+  "price": 1200,
+  "style": "salegy",
+  "lyrics": "Trap\xE8gny marandraigny\n        Tsendriky navy an-tragno\n        Trap\xE8gna aligny andra, efa lasa niboaka tragno\n        Nd\xE8 mit\xF4ha anigny,\n        Mihinagna an-tragnon'olo\n        Mba mangala viavy anao, hamelogno anao\n        Vaiavy tsara t\xE8za, mahalala f\xF4mba\n        Vaiavy tsara j\xF4ro, ilay mavelon-tegna\n        Izy koa al\xE8gna an-tragno\n        Mahafahagna tokan-tragno \xF4!\n        Mangala Vaiavy anao \xE8; hamelogno anao \xF4!\n        Mangala Vaiavy anao \xE8! Mangala Vaiavy anao \xE8; mba Mangala Vaiavy anao \xE8\n        Hum! hum! hum\n        Vaivy tsara taiza\n        Vaiavy tsara joro\n        Vaiavy tsara toetry\n        Tsara manambady"
 }];
 exports.default = _default;
 },{}],"Context.js":[function(require,module,exports) {
@@ -34225,7 +34225,12 @@ function Styles() {
   }, /*#__PURE__*/_react.default.createElement("button", {
     value: "reggae",
     onClick: filtering
-  }, "Reggae")))));
+  }, "Reggae"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/styles/r&b"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    value: "r&b",
+    onClick: filtering
+  }, "R&B")))));
 }
 
 var _default = Styles;
@@ -34324,12 +34329,24 @@ function Add() {
     onChange: function onChange(e) {
       return setPrice(e.target.value);
     }
-  })), /*#__PURE__*/_react.default.createElement("label", null, "Style", /*#__PURE__*/_react.default.createElement("input", {
+  })), /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("select", {
     value: style,
     onChange: function onChange(e) {
       return setStyle(e.target.value);
     }
-  })), /*#__PURE__*/_react.default.createElement("label", null, "Lyrics", /*#__PURE__*/_react.default.createElement("textarea", {
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: ""
+  }, "Styles"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "salegy"
+  }, "Salegy"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "rock"
+  }, "Rock"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "folk"
+  }, "Folk"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "reggea"
+  }, "Reggae"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "r&b"
+  }, "R&B"))), /*#__PURE__*/_react.default.createElement("label", null, "Lyrics", /*#__PURE__*/_react.default.createElement("textarea", {
     value: lyrics,
     onChange: function onChange(e) {
       return setLyrics(e.target.value);

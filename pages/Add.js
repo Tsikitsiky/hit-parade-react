@@ -43,8 +43,16 @@ function Add() {
                 <label>Price
                     <input value={price} onChange={(e) => setPrice(e.target.value)} />
                 </label>
-                <label>Style
-                    <input value={style} onChange={(e) => setStyle(e.target.value)} />
+                <label>
+                    {/* <input value={style} onChange={(e) => setStyle(e.target.value.toLocaleLowerCase())} /> */}
+                    <select value={style} onChange={(e) => setStyle(e.target.value)}>
+                        <option value=''>Styles</option>
+                        <option value='salegy'>Salegy</option>
+                        <option value='rock'>Rock</option>
+                        <option value='folk'>Folk</option>
+                        <option value='reggea'>Reggae</option>
+                        <option value='r&b'>R&B</option>
+                    </select>
                 </label>
                 <label>Lyrics
                     <textarea value={lyrics} onChange={(e) => setLyrics(e.target.value)} />

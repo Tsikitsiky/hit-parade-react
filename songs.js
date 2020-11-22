@@ -7,7 +7,7 @@ export default [
         "downvotes": 0,
         "isFavourite": false,
         "price": 1000,
-        "style": "salegy",
+        "style": "folk",
         "lyrics": `Walking down 29th and Park
         I saw you in another's arms
         Only a month we've been apart
@@ -21,13 +21,29 @@ export default [
     {
         "id": 2,
         "artist": "Jaojoby",
-        "title": "Happier",
+        "title": "Tsy hirenireny",
         "upvotes": 0,
         "downvotes": 0,
         "isFavourite": false,
-        "price": 1000,
-        "style": "folk",
-        "lyrics": "Walking down 29th and Park"
+        "price": 1200,
+        "style": "salegy",
+        "lyrics": `Trapègny marandraigny
+        Tsendriky navy an-tragno
+        Trapègna aligny andra, efa lasa niboaka tragno
+        Ndè mitôha anigny,
+        Mihinagna an-tragnon'olo
+        Mba mangala viavy anao, hamelogno anao
+        Vaiavy tsara tèza, mahalala fômba
+        Vaiavy tsara jôro, ilay mavelon-tegna
+        Izy koa alègna an-tragno
+        Mahafahagna tokan-tragno ô!
+        Mangala Vaiavy anao è; hamelogno anao ô!
+        Mangala Vaiavy anao è! Mangala Vaiavy anao è; mba Mangala Vaiavy anao è
+        Hum! hum! hum
+        Vaivy tsara taiza
+        Vaiavy tsara joro
+        Vaiavy tsara toetry
+        Tsara manambady`
 
     }
 ]
