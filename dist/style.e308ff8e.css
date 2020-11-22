@@ -177,4 +177,14 @@ form button {
     width: 100px;
 }
 
+@media(max-width: 375px) {
+    .navigation {
+        flex-direction: column;
+    }
+
+    .song-cart {
+        flex-wrap: wrap;
+    }
+}
+
 /*# sourceMappingURL=/style.e308ff8e.css.map */

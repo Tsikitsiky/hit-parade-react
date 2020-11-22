@@ -176,3 +176,13 @@ form button {
     background-color: #FFD803;
     width: 100px;
 }
+
+@media(max-width: 375px) {
+    .navigation {
+        flex-direction: column;
+    }
+
+    .song-cart {
+        flex-wrap: wrap;
+    }
+}
