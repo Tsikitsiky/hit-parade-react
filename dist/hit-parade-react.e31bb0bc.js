@@ -34282,7 +34282,7 @@ function Add() {
       style = _useState6[0],
       setStyle = _useState6[1];
 
-  var _useState7 = (0, _react.useState)(0),
+  var _useState7 = (0, _react.useState)(),
       _useState8 = _slicedToArray(_useState7, 2),
       price = _useState8[0],
       setPrice = _useState8[1];
@@ -34325,6 +34325,7 @@ function Add() {
       return setArtist(e.target.value);
     }
   })), /*#__PURE__*/_react.default.createElement("label", null, "Price", /*#__PURE__*/_react.default.createElement("input", {
+    type: "next",
     value: price,
     onChange: function onChange(e) {
       return setPrice(e.target.value);

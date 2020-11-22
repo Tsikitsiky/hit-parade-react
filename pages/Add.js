@@ -6,7 +6,7 @@ function Add() {
     const [artist, setArtist] = useState('');
     const [title, setTitle] = useState('');
     const [style, setStyle] = useState('');
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState()
     const [lyrics, setLyrics] = useState('');
 
     // function handleChange(e) {
@@ -41,7 +41,7 @@ function Add() {
                     <input value={artist} onChange={(e) => setArtist(e.target.value) } />
                 </label>
                 <label>Price
-                    <input value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="next" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </label>
                 <label>
                     {/* <input value={style} onChange={(e) => setStyle(e.target.value.toLocaleLowerCase())} /> */}
