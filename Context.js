@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Songs from './songs';
 
 const Context = React.createContext();
@@ -71,6 +71,37 @@ function ContextProvider({children}) {
         const filterSong = allSongs.filter(song => song.style === e.target.value);
         setFiltered(filterSong);
     }
+
+    function initSongs() {
+        const lsAllSongs = JSON.parse(localStorage.getItem('AllSongs'));
+        if(lsAllSongs) {
+            setAllSongs(lsAllSongs);
+        }
+
+        const lsCartSongs = JSON.parse(localStorage.getItem('CartSongs'));
+        if(lsCartSongs) {
+            setCartSongs(lsCartSongs);
+        }
+    }
+
+    // On mount
+    useEffect(() => {
+        initSongs();
+    }, [])
+    
+    // On update
+    useEffect(() => {
+        if(allSongs.length > 0) {
+            localStorage.setItem('AllSongs', JSON.stringify(allSongs));
+        }
+    }, [allSongs]) 
+
+    useEffect(() => {
+        
+            localStorage.setItem('CartSongs', JSON.stringify(cartSongs));
+        
+    }, [cartSongs])
+
 	
 
     //console.log(allSongs)

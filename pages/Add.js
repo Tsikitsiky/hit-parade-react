@@ -26,8 +26,9 @@ function Add() {
             "style": style,
             "lyrics": lyrics
                 }
-                console.log(newSongToAdd)
-        addNewSong(newSongToAdd)
+
+        addNewSong(newSongToAdd);
+        e.target.reset();
     }
     return (
         <div>

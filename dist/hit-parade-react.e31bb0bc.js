@@ -34018,8 +34018,35 @@ function ContextProvider(_ref) {
       return song.style === e.target.value;
     });
     setFiltered(filterSong);
-  } //console.log(allSongs)
+  }
 
+  function initSongs() {
+    var lsAllSongs = JSON.parse(localStorage.getItem('AllSongs'));
+
+    if (lsAllSongs) {
+      setAllSongs(lsAllSongs);
+    }
+
+    var lsCartSongs = JSON.parse(localStorage.getItem('CartSongs'));
+
+    if (lsCartSongs) {
+      setCartSongs(lsCartSongs);
+    }
+  } // On mount
+
+
+  (0, _react.useEffect)(function () {
+    initSongs();
+  }, []); // On update
+
+  (0, _react.useEffect)(function () {
+    if (allSongs.length > 0) {
+      localStorage.setItem('AllSongs', JSON.stringify(allSongs));
+    }
+  }, [allSongs]);
+  (0, _react.useEffect)(function () {
+    localStorage.setItem('CartSongs', JSON.stringify(cartSongs));
+  }, [cartSongs]); //console.log(allSongs)
 
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
@@ -34276,8 +34303,8 @@ function Add() {
       "style": style,
       "lyrics": lyrics
     };
-    console.log(newSongToAdd);
     addNewSong(newSongToAdd);
+    e.target.reset();
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "\uD83D\uDE42 Add a new song"), /*#__PURE__*/_react.default.createElement("form", {
