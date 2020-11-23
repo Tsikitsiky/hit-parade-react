@@ -34169,10 +34169,16 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function Home() {
   var _useContext = (0, _react.useContext)(_Context.Context),
-      allSongs = _useContext.allSongs; //console.log(allSongs)
+      allSongs = _useContext.allSongs;
+
+  function sortSong(songA, songB) {
+    var rateSongA = songA.upvotes - songA.downvotes;
+    var rateSongB = songB.upvotes - songB.downvotes;
+    return rateSongB - rateSongA;
+  } //console.log(allSongs)
 
 
-  var songList = allSongs.map(function (song) {
+  var songList = allSongs.sort(sortSong).map(function (song) {
     return /*#__PURE__*/_react.default.createElement(_Song.default, {
       key: song.id,
       song: song
