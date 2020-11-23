@@ -97,11 +97,8 @@ function ContextProvider({children}) {
     }, [allSongs]) 
 
     useEffect(() => {
-        
             localStorage.setItem('CartSongs', JSON.stringify(cartSongs));
-        
     }, [cartSongs])
-
 	
 
     //console.log(allSongs)

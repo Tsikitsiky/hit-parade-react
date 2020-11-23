@@ -34309,7 +34309,11 @@ function Add() {
       "lyrics": lyrics
     };
     addNewSong(newSongToAdd);
-    e.target.reset();
+    setArtist('');
+    setTitle('');
+    setStyle('');
+    setPrice('');
+    setLyrics('');
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "\uD83D\uDE42 Add a new song"), /*#__PURE__*/_react.default.createElement("form", {
@@ -34632,7 +34636,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56799" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52912" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

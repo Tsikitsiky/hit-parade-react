@@ -28,7 +28,11 @@ function Add() {
                 }
 
         addNewSong(newSongToAdd);
-        e.target.reset();
+        setArtist('');
+        setTitle('');
+        setStyle('');
+        setPrice('');
+        setLyrics('')
     }
     return (
         <div>
