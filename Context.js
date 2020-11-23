@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Songs from './songs';
+import Songs from './songsData';
 
 const Context = React.createContext();
 

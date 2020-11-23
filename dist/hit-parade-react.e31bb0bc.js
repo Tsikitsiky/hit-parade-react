@@ -33853,7 +33853,7 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"songs.js":[function(require,module,exports) {
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"songsData.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33869,7 +33869,7 @@ var _default = [{
   "isFavourite": false,
   "price": 1000,
   "style": "folk",
-  "lyrics": "Walking down 29th and Park\n        I saw you in another's arms\n        Only a month we've been apart\n        You look happier\n        Saw you walk inside a bar\n        He said somethin' to make you laugh\n        I saw that both your smiles were twice as wide as ours\n        Yeah, you look happier, you do"
+  "lyrics": "Walking down 29th and Park\n                    I saw you in another's arms\n                    Only a month we've been apart\n                    You look happier\n                    Saw you walk inside a bar\n                    He said somethin' to make you laugh\n                    I saw that both your smiles were twice as wide as ours\n                    Yeah, you look happier, you do"
 }, {
   "id": 2,
   "artist": "Jaojoby",
@@ -33879,7 +33879,7 @@ var _default = [{
   "isFavourite": false,
   "price": 1200,
   "style": "salegy",
-  "lyrics": "Trap\xE8gny marandraigny\n        Tsendriky navy an-tragno\n        Trap\xE8gna aligny andra, efa lasa niboaka tragno\n        Nd\xE8 mit\xF4ha anigny,\n        Mihinagna an-tragnon'olo\n        Mba mangala viavy anao, hamelogno anao\n        Vaiavy tsara t\xE8za, mahalala f\xF4mba\n        Vaiavy tsara j\xF4ro, ilay mavelon-tegna\n        Izy koa al\xE8gna an-tragno\n        Mahafahagna tokan-tragno \xF4!\n        Mangala Vaiavy anao \xE8; hamelogno anao \xF4!\n        Mangala Vaiavy anao \xE8! Mangala Vaiavy anao \xE8; mba Mangala Vaiavy anao \xE8\n        Hum! hum! hum\n        Vaivy tsara taiza\n        Vaiavy tsara joro\n        Vaiavy tsara toetry\n        Tsara manambady"
+  "lyrics": "Trap\xE8gny marandraigny\n                Tsendriky navy an-tragno\n                Trap\xE8gna aligny andra, efa lasa niboaka tragno\n                Nd\xE8 mit\xF4ha anigny,\n                Mihinagna an-tragnon'olo\n                Mba mangala viavy anao, hamelogno anao\n                Vaiavy tsara t\xE8za, mahalala f\xF4mba\n                Vaiavy tsara j\xF4ro, ilay mavelon-tegna\n                Izy koa al\xE8gna an-tragno\n                Mahafahagna tokan-tragno \xF4!\n                Mangala Vaiavy anao \xE8; hamelogno anao \xF4!\n                Mangala Vaiavy anao \xE8! Mangala Vaiavy anao \xE8; mba Mangala Vaiavy anao \xE8\n                Hum! hum! hum\n                Vaivy tsara taiza\n                Vaiavy tsara joro\n                Vaiavy tsara toetry\n                Tsara manambady"
 }];
 exports.default = _default;
 },{}],"Context.js":[function(require,module,exports) {
@@ -33893,7 +33893,7 @@ exports.Context = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _songs = _interopRequireDefault(require("./songs"));
+var _songsData = _interopRequireDefault(require("./songsData"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33934,7 +33934,7 @@ exports.Context = Context;
 function ContextProvider(_ref) {
   var children = _ref.children;
 
-  var _useState = (0, _react.useState)(_songs.default),
+  var _useState = (0, _react.useState)(_songsData.default),
       _useState2 = _slicedToArray(_useState, 2),
       allSongs = _useState2[0],
       setAllSongs = _useState2[1];
@@ -34064,7 +34064,7 @@ function ContextProvider(_ref) {
     }
   }, children);
 }
-},{"react":"node_modules/react/index.js","./songs":"songs.js"}],"Components/Song.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./songsData":"songsData.js"}],"Components/Song.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34535,9 +34535,17 @@ function SongLyrics() {
   var song = allSongs.find(function (song) {
     return song.id === Number(songId);
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, song.title, " : ", song.artist), /*#__PURE__*/_react.default.createElement("div", {
+  var history = (0, _reactRouterDom.useHistory)();
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("i", {
+    style: {
+      cursor: "pointer"
+    },
+    onClick: function onClick() {
+      return history.goBack();
+    }
+  }, "\u2190"), /*#__PURE__*/_react.default.createElement("h2", null, song.title, " : ", song.artist), /*#__PURE__*/_react.default.createElement("div", {
     className: "lyrics"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), /*#__PURE__*/_react.default.createElement("p", null, " ", song.lyrics, " ")));
+  }, /*#__PURE__*/_react.default.createElement("h3", null, "Lyrics"), /*#__PURE__*/_react.default.createElement("pre", null, " ", song.lyrics, " ")));
 }
 
 var _default = SongLyrics;
@@ -34642,7 +34650,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52912" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56313" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
